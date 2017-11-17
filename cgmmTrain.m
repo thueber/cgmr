@@ -47,16 +47,7 @@ xy = [x;y];
 
 % Calculate beta=p(m|[x y])=p([x y]|m)p(m)
 beta = gmmCalculatePosterior(xy,xy_priors,xy_mu,xy_sigma);
-%beta = gmmCalculatePosterior(x,xy_priors,xy_mu(x_ind,:),xy_sigma(x_ind,x_ind,:));
 
-% toto = zeros(N,M);
-% for m = 1:M
-%     toto(:,m) = gmmCalculateLikelihood(xy, xy_mu(:,m), inv(xy_sigma(:,:,m)));
-% end
-% tutu = exp(toto - repmat(max(toto,[],2),1,M)); % up to a multiplicative constant
-% toto = repmat(xy_priors,[N 1]).*tutu;
-% titi = toto ./ repmat(sum(toto,2),[1 M]);%normalize !
-% beta = titi;
 
 xyz_priors = xy_priors;
 xyz_mu = zeros(nDimxyz,M);
